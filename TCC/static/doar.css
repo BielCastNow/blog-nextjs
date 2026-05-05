@@ -1,0 +1,543 @@
+/* =========================
+   RESET
+========================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+    --green: #1f7a4f;
+    --green-light: #43b77a;
+    --green-soft: #e9f8ef;
+    --blue: #3f8fb5;
+    --white: #ffffff;
+    --dark: #0f1f18;
+    --text: #183026;
+    --gray: #66756d;
+    --border: rgba(0, 0, 0, .08);
+
+    --shadow-sm: 0 6px 18px rgba(0, 0, 0, .08);
+    --shadow-md: 0 15px 35px rgba(0, 0, 0, .12);
+    --shadow-lg: 0 25px 60px rgba(0, 0, 0, .18);
+
+    --radius-sm: 12px;
+    --radius-md: 22px;
+    --radius-lg: 32px;
+
+    --transition: .35s ease;
+}
+
+/* =========================
+   BASE
+========================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f7faf8;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    border: none;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+section {
+    padding: 90px 0;
+}
+
+.section-mini {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--green);
+    font-size: .85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-header {
+    margin-bottom: 45px;
+}
+
+.section-header span {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--green);
+    font-size: .85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    line-height: 1.1;
+}
+
+.center {
+    text-align: center;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1000;
+    height: 85px;
+    backdrop-filter: blur(16px);
+    background: rgba(10, 24, 18, .45);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.nav-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar__logo img {
+    height: 60px;
+    width: auto;
+}
+
+.navbar__menu {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn--ghost {
+    color: white;
+}
+
+.btn--ghost:hover {
+    background: rgba(255, 255, 255, .08);
+}
+
+/* =========================
+   HERO
+========================= */
+.donate-hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(0, 0, 0, .45),
+            rgba(0, 0, 0, .65)),
+        url("/img/img1.jpg") center/cover;
+}
+
+.donate-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to right,
+            rgba(0, 0, 0, .55),
+            rgba(0, 0, 0, .2));
+}
+
+.donate-hero__content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 760px;
+}
+
+.hero-tag {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(10px);
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.donate-hero h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.donate-hero p {
+    font-size: 1.1rem;
+    max-width: 620px;
+}
+
+/* =========================
+   META
+========================= */
+.goal {
+    padding-top: 60px;
+}
+
+.goal-box {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 45px;
+    box-shadow: var(--shadow-md);
+}
+
+.goal-box span {
+    color: var(--green);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.goal-box h2 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.goal-box p {
+    color: var(--gray);
+}
+
+.progress {
+    margin-top: 30px;
+    width: 100%;
+    height: 18px;
+    background: #dfeee6;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 71%;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg,
+            var(--green),
+            var(--blue));
+}
+
+/* =========================
+   FORM SECTION
+========================= */
+.donation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.donation-info h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.donation-info p {
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+.impact-list {
+    display: grid;
+    gap: 18px;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.donation-card {
+    background: white;
+    padding: 35px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.amount-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.amount-btn {
+    padding: 16px;
+    border-radius: 14px;
+    background: #f2f7f4;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.amount-btn:hover,
+.amount-btn.active {
+    background: linear-gradient(135deg,
+            var(--green),
+            var(--blue));
+    color: white;
+}
+
+.donation-form {
+    display: grid;
+    gap: 16px;
+}
+
+.donation-form input,
+.donation-form select,
+.donation-form textarea {
+    width: 100%;
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: #fbfdfc;
+}
+
+.submit-btn {
+    margin-top: 8px;
+    padding: 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg,
+            var(--green),
+            var(--blue));
+    transition: var(--transition);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+
+.pix-area {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #f6fbf8;
+    border: 1px solid #dfeee6;
+    text-align: center;
+}
+
+.pix-area h3 {
+    margin-bottom: 10px;
+}
+
+.pix-qr {
+    width: 180px;
+    margin: 10px auto;
+}
+
+.pix-key {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.pix-key input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.pix-key button {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #1f7a4f;
+    color: white;
+    border: none;
+}
+
+/* =========================
+   TRANSPARENCY
+========================= */
+.transparency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.info-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 35px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.info-card h3 {
+    font-size: 2.5rem;
+    color: var(--green);
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    color: var(--gray);
+}
+
+/* =========================
+   TESTIMONIALS
+========================= */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 35px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.testimonial-card p {
+    margin-bottom: 18px;
+    color: var(--gray);
+    font-size: 1.05rem;
+}
+
+/* =========================
+   FAQ
+========================= */
+.faq-list {
+    display: grid;
+    gap: 20px;
+}
+
+.faq-item {
+    background: white;
+    padding: 28px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    color: var(--gray);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    margin-top: 70px;
+    background: var(--dark);
+    color: white;
+    padding-top: 70px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 35px;
+    padding-bottom: 45px;
+}
+
+.footer h3,
+.footer h4 {
+    margin-bottom: 14px;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, .75);
+    margin-bottom: 10px;
+}
+
+.copyright {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    color: rgba(255, 255, 255, .55);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .donation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        height: auto;
+        padding: 14px 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .navbar__menu {
+        margin-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .goal-box,
+    .donation-card {
+        padding: 28px;
+    }
+
+    .amount-grid {
+        grid-template-columns: 1fr;
+    }
+}

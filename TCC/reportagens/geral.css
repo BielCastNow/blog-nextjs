@@ -1,0 +1,225 @@
+/* =========================
+   RESET / Obrigatorio
+========================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #1f7a4f;
+    --green-light: #43b77a;
+    --green-soft: #e9f8ef;
+    --blue: #3f8fb5;
+    --white: #ffffff;
+    --dark: #102119;
+    --text: #1d2d24;
+    --gray: #68756e;
+    --border: rgba(0, 0, 0, 0.08);
+
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.18);
+
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 30px;
+
+    --transition: .35s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+section {
+    padding: 90px 0;
+}
+
+.section-header {
+    margin-bottom: 45px;
+}
+
+.section-header span {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--green);
+    font-size: .85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1000;
+    height: 85px;
+    backdrop-filter: blur(16px);
+    background: rgba(12, 28, 20, .45);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.nav-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar__logo img {
+    height: 60px;
+    width: auto;
+}
+
+.navbar__menu {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn--ghost {
+    color: white;
+}
+
+.btn--ghost:hover {
+    background: rgba(255, 255, 255, .08);
+}
+
+.btn--glow {
+    color: white;
+    background: linear-gradient(135deg, var(--green-light), var(--blue));
+    box-shadow: var(--shadow-sm);
+}
+
+.btn--glow:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--green), var(--blue));
+    color: white;
+}
+
+.btn--outline {
+    color: white;
+    border: 2px solid rgba(255, 255, 255, .7);
+}
+
+.btn--primary:hover,
+.btn--outline:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   Reportagem
+========================= */
+
+
+
+
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    margin-top: 60px;
+    background: var(--dark);
+    color: white;
+    padding-top: 70px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer h3,
+.footer h4 {
+    margin-bottom: 16px;
+}
+
+.footer p,
+.footer a {
+    display: block;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, .78);
+}
+
+.copyright {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    color: rgba(255, 255, 255, .55);
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .featured-post {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        height: auto;
+        padding: 14px 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .navbar__menu {
+        margin-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .newsletter__box {
+        padding: 35px;
+    }
+
+    .newsletter-form input {
+        min-width: 100%;
+    }
+}
